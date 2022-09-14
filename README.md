@@ -10,7 +10,7 @@
 
 3. 为FMU创建一个OpenAI环境，并使用强化学习代理与模型交互
 
-这里的代码是用来模拟[污水处理厂ASM1号](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1)的Modelica实现的，可以在这个资源库中的[./WasteWaterResearch/BSM1/](./ wasteresearch /BSM1/)目录中找到它，它改编自[Félix Hernández del Olmo](https://github.com/felixhdelolmo/WasteWaterResearch)的工作。此外，它的编译FMU已经在这个存储库中可用([BSM1.BSM1.fmu](./BSM1.BSM1.fmu))，它可以直接在Windows 64位系统下使用(它是在这个存储库中编译的)，而不需要重新编译它(在任何情况下，生成FMU的指令已经包含在本README中)。最后，即使用户对BSM1不感兴趣，该存储库也提供了工具和说明，以适应任何Modelica模型，将其集成到OpenAI Gym API中，并用于在其上训练强化学习代理。
+这里的代码是用来模拟[污水处理算法ASM1/ASM2/ASM3](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1)的Modelica实现的，可以在这个资源库中的[./WasteWaterResearch/BSM1/](./ wasteresearch /BSM1/)目录中找到它，它改编自[Félix Hernández del Olmo](https://github.com/felixhdelolmo/WasteWaterResearch)的工作。此外，它的编译FMU已经在这个存储库中可用([BSM1.BSM1.fmu](./BSM1.BSM1.fmu))，它可以直接在Windows 64位系统下使用(它是在这个存储库中编译的)，而不需要重新编译它(在任何情况下，生成FMU的指令已经包含在本README中)。最后，即使用户对BSM1不感兴趣，该存储库也提供了工具和说明，以适应任何Modelica模型，将其集成到OpenAI Gym API中，并用于在其上训练强化学习代理。
 
 ## 0.制备步骤
  - 下载并安装适用于 Python 3.7 的 Miniconda：https ://docs.conda.io/en/latest/miniconda.html
