@@ -1,29 +1,31 @@
-# BSM1_gym
-Transform a Modelica model (BSM1) into a Python OpenAI Gym environment, and optimize operation cost using reinforcement learning agents.
+# BSM1_cn
 
-This README provides the general instructions on how to:
+将Modelica模型(BSM1)转换为Python OpenAI Gym环境，并使用人工智能的强化学习代理优化操作成本。
 
- 1. Run a Modelica model using [Open Modelica](https://www.openmodelica.org/) from Python ([OMPython](https://github.com/OpenModelica/OMPython))
- 1. Convert the model to the [FMU](https://fmi-standard.org/) format and simulate it directly within Python using [PyFMI](https://github.com/modelon-community/PyFMI)
- 1. Create an OpenAI environment for the FMU, and use a Reinforcement Learning agent to interact with the model
+本README提供了关于如何:
 
-The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), that can be found in the [./WasteWaterResearch/BSM1/](./WasteWaterResearch/BSM1/) directory within this repository, and that was adapted from the work of [Félix Hernández del Olmo](https://github.com/felixhdelolmo/WasteWaterResearch). Furthremore, its compiled FMU has been made available in this repository ([BSM1.BSM1.fmu](./BSM1.BSM1.fmu)), which can be used directly under a Windows 64bits system (in which it was compiled) without the need of recompiling it (in any case, the instrucions for generating the FMU have been included in this README). Finally, even if the BSM1 is of no interest to the user, this repository provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
+1. 使用[Open Modelica](https://www.openmodelica.org/)从Python ([OMPython](https://github.com/OpenModelica/OMPython))运行Modelica模型
 
-## 0. Preparation steps
- - Download and install Miniconda for Python 3.7: https://docs.conda.io/en/latest/miniconda.html
- - Once installed, open an Anaconda prompt, and create a Modelica environmet: `conda create -n modelica python=3.7`
- - Activate it: `conda activate modelica`
- - Install some libraries that will be neeed: 
+2. 将模型转换为[FMU](https://fmi-standard.org/)格式，并使用[PyFMI](https://github.com/modelon-community/PyFMI)在Python中直接模拟它。
+
+3. 为FMU创建一个OpenAI环境，并使用强化学习代理与模型交互
+
+这里的代码是用来模拟[污水处理厂ASM1号](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1)的Modelica实现的，可以在这个资源库中的[./WasteWaterResearch/BSM1/](./ wasteresearch /BSM1/)目录中找到它，它改编自[Félix Hernández del Olmo](https://github.com/felixhdelolmo/WasteWaterResearch)的工作。此外，它的编译FMU已经在这个存储库中可用([BSM1.BSM1.fmu](./BSM1.BSM1.fmu))，它可以直接在Windows 64位系统下使用(它是在这个存储库中编译的)，而不需要重新编译它(在任何情况下，生成FMU的指令已经包含在本README中)。最后，即使用户对BSM1不感兴趣，该存储库也提供了工具和说明，以适应任何Modelica模型，将其集成到OpenAI Gym API中，并用于在其上训练强化学习代理。
+
+## 0.制备步骤
+ - 下载并安装适用于 Python 3.7 的 Miniconda：https ://docs.conda.io/en/latest/miniconda.html
+ - 安装后，打开 Anaconda 提示符，并创建 Modelica 环境：conda create -n modelica python=3.7
+ - 激活它：conda activate modelica
+ - 安装一些需要的库：
 ```{bash}
 conda install numpy matplotlib psutil pyzmq scipy future git pandas seaborn scikit-learn tqdm
 conda install -c conda-forge ffmpeg
 ```
- - Clone this repository to your computer and navigate to it:
+ - 将此存储库克隆到您的计算机并导航到它：:
 ```{bash}
 git clone https://github.com/OscarPellicer/BSM1_gym.git
 cd BSM1_gym
 ```
- 
 
 ## 1. Interacting with OpenModelica models through OMPython
  - Download and install OpenModelica: https://www.openmodelica.org/
